@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use function Sodium\add;
 
 class UploadController extends Controller
 {
@@ -12,16 +13,12 @@ class UploadController extends Controller
         return view('upload');
     }
 
-    public function subir_archivo(Request $request)
-    {
-        $file = $request->file('Archivo');
-        dd($file);
-        \Storage::disk('local')->put($file, \File::get($file));
-    }
+    //public $arrayImagenes = array();
+
     public function save(Request $request)
     {
         //obtenemos el campo file definido en el formulario
-        $file = $request->file('file');
+        $file = $request->file('Archivo');
 
         //obtenemos el nombre del archivo
         $nombre = $file->getClientOriginalName();
@@ -29,6 +26,8 @@ class UploadController extends Controller
         //indicamos que queremos guardar un nuevo archivo en el disco local
         \Storage::disk('local')->put($nombre,  \File::get($file));
 
-        return "archivo guardado";
+        //array_push($this->arrayImagenes,$nombre);
+
+        return redirect('/collection/gallery');
     }
 }

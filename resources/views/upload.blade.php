@@ -8,11 +8,9 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <form method="POST" action=""  accept-charset="UTF-8" files="true" enctype="multipart/form-data">
 
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            {{method_field('PUT')}}
-
+                        <form method="POST" action="" id=”frm” url=”upload” accept-charset="UTF-8" files="true" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
                             <div class="form-group">
                                 <div class="col-md-6">
@@ -22,7 +20,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button type="submit" class="btn btn-primary">Subir</button>
                                 </div>
                             </div>
                         </form>

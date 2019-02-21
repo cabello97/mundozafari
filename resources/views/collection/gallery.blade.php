@@ -1,9 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    <h2>Upload de Archivos en Laravel</h2>
-    <form method="post" id="frm" url="upload" files="true" enctype="multipart/form-data">
-        {{ csrf_field() }}
-        <label for="Archivo"><b>Archivo: </b></label><input type="file" name="Archivo" required>
-        <input type="submit" value="Enviar" >
-    </form>
+    <h2>Imagenes subidas</h2>
+
+    <div class="row">
+    @for ($i = 0; $i <=5; $i++)
+            <div class="col-xs-6 col-sm-4 col-md-3 text-center">
+                    <a href="../uploads/{{$i}}.jpg"><img src="../uploads/{{$i}}.jpg" style="height:200px; width:200px; margin-bottom: 34px"/></a>
+            </div>
+        @endfor
+    </div>
 @stop

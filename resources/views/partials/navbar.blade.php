@@ -15,14 +15,19 @@
                             Colección
                         </a>
                     </li>
+                    <li class="nav-item {{  Request::is('collection/create') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/collection/create')}}">
+                            <span>&#10010</span> Añadir animal
+                        </a>
+                    </li>
                     <li class="nav-item {{  Request::is('collection/gallery') ? 'active' : ''}}">
                         <a class="nav-link" href="{{url('/collection/gallery')}}">
                             <span>&#x1F5BC</span> Galería
                         </a>
                     </li>
-                    <li class="nav-item {{  Request::is('collection/create') ? 'active' : ''}}">
-                        <a class="nav-link" href="{{url('/collection/create')}}">
-                            <span>&#10010</span> Añadir animal
+                    <li class="nav-item {{  Request::is('upload') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{url('/upload')}}">
+                            <span>&#10010</span> Subir imagenes
                         </a>
                     </li>
                 </ul>

@@ -21,17 +21,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::get('upload','UploadController@index'); //Lanza la vista
-Route::post('upload','UploadController@subir_archivo'); //Guarda los Archivos
-
-Route::get('gallery', function ($archivo) {
-    $public_path = public_path();
-    $url = $public_path.'/storage/'.$archivo;
-    //verificamos si el archivo existe y lo retornamos
-    if (Storage::exists($archivo))
-    {
-        return response()->download($url);
-    }
-    //si no se encuentra lanzamos un error 404.
-    abort(404);
-
-});
+Route::post('upload','UploadController@save'); //Guarda los Archivos
