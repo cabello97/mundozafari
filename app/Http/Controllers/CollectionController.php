@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Animal;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CollectionController extends Controller
 {
@@ -18,7 +19,6 @@ class CollectionController extends Controller
             'habitat' => 'required|string|max:250',
             'region' => 'required|int',
             'feeding' => 'required|string|max:250'
-
         ]);
     }
 
