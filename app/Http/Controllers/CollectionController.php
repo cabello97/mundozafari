@@ -7,14 +7,41 @@ use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'scientific' => 'required|string|max:250',
+            'photo' => 'required|string|max:250',
+            'description' => 'required|string|max:250',
+            'habitat' => 'required|string|max:250',
+            'region' => 'required|int',
+            'feeding' => 'required|string|max:250'
+
+        ]);
+    }
+
     public function getIndex()
     {
-        return	view('collection.index' ,array('animales' => Animal::all()));
+
+        try { 
+            return	view('collection.index' ,array('animales' => Animal::all()));
+         } catch (Illuminate\Database\QueryException $e) { 
+            return	view('errors/Database'); 
+         } 
+        
     }
 
     public function getShow($id)
     {
-        return	view('collection.show',	['animal'=> Animal::findOrFail($id), 'id'=> $id]);
+        try { 
+            return	view('collection.show',	['animal'=> Animal::findOrFail($id), 'id'=> $id]);
+                 } catch (Illuminate\Database\QueryException $e) { 
+            return	view('errors/Database'); 
+         } 
+
+        
     }
 
     public function getGallery()
@@ -29,7 +56,12 @@ class CollectionController extends Controller
 
     public function getEdit($id)
     {
-        return	view('collection.edit',	['animal'=> Animal::findOrFail($id), 'id'=> $id]);
+        try { 
+            return	view('collection.edit',	['animal'=> Animal::findOrFail($id), 'id'=> $id]);
+        } catch (Illuminate\Database\QueryException $e) { 
+            return	view('errors/Database'); 
+         } 
+        
     }
 
     public function getNotadmin()
@@ -39,63 +71,79 @@ class CollectionController extends Controller
 
     public function postCreate(Request $request)
     {
-        $animal = new Animal();
-        if(!empty($animal)){
-            if(!empty($request['name'])){
-                $animal->name = $request['name'];
-            }
-            if(!empty($request['scientific'])){
-                $animal->scientific = $request['scientific'];
-            }
-            if(!empty($request['photo'])){
-                $animal->photo = $request['photo'];
-            }
-            if(!empty($request['description'])){
-                $animal->description = $request['description'];
-            }
-            if(!empty($request['habitat'])){
-                $animal->habitat = $request['habitat'];
-            }
-            if(!empty($request['region'])){
-                $animal->region_id = $request['region'];
-            }
-            if(!empty($request['feeding'])){
-                $animal->feeding = $request['feeding'];
-            }
-            $animal->danger=0;
-        }
-        $animal->save();
 
-        return redirect('/collection');
+        try { 
+
+            $animal = new Animal();
+            if(!empty($animal)){
+                if(!empty($request['name'])){
+                    $animal->name = $request['name'];
+                }
+                if(!empty($request['scientific'])){
+                    $animal->scientific = $request['scientific'];
+                }
+                if(!empty($request['photo'])){
+                    $animal->photo = $request['photo'];
+                }
+                if(!empty($request['description'])){
+                    $animal->description = $request['description'];
+                }
+                if(!empty($request['habitat'])){
+                    $animal->habitat = $request['habitat'];
+                }
+                if(!empty($request['region'])){
+                    $animal->region_id = $request['region'];
+                }
+                if(!empty($request['feeding'])){
+                    $animal->feeding = $request['feeding'];
+                }
+                $animal->danger=0;
+            }
+            $animal->save();
+    
+            return redirect('/collection');
+
+        } catch (\Illuminate\Database\QueryException $e) { 
+            return	view('errors/Database'); 
+         } 
+
+        
+
     }
 
     public function putEdit(Request $request){
-        $animal = Animal::findOrFail($request['id']);
-        if(!empty($animal)){
-            if(!empty($request['name'])){
-                $animal->name = $request['name'];
+        try { 
+
+            $animal = Animal::findOrFail($request['id']);
+            if(!empty($animal)){
+                if(!empty($request['name'])){
+                    $animal->name = $request['name'];
+                }
+                if(!empty($request['scientific'])){
+                    $animal->scientific = $request['scientific'];
+                }
+                if(!empty($request['photo'])){
+                    $animal->photo = $request['photo'];
+                }
+                if(!empty($request['description'])){
+                    $animal->description = $request['description'];
+                }
+                if(!empty($request['habitat'])){
+                    $animal->habitat = $request['habitat'];
+                }
+                if(!empty($request['region'])){
+                    $animal->region_id = $request['region'];
+                }
+                if(!empty($request['feeding'])){
+                    $animal->feeding = $request['feeding'];
+                }
+                $animal->danger=0;
             }
-            if(!empty($request['scientific'])){
-                $animal->scientific = $request['scientific'];
-            }
-            if(!empty($request['photo'])){
-                $animal->photo = $request['photo'];
-            }
-            if(!empty($request['description'])){
-                $animal->description = $request['description'];
-            }
-            if(!empty($request['habitat'])){
-                $animal->habitat = $request['habitat'];
-            }
-            if(!empty($request['region'])){
-                $animal->region_id = $request['region'];
-            }
-            if(!empty($request['feeding'])){
-                $animal->feeding = $request['feeding'];
-            }
-            $animal->danger=0;
-        }
-        $animal->save();
+            $animal->save();
+
+        } catch (\Illuminate\Database\QueryException $e) { 
+            return	view('errors/Database'); 
+         } 
 
         return redirect('/collection');
     }
