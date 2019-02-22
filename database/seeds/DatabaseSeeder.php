@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'León',
             'scientific' => 'Panthera leo',
             'photo' => 'https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg',
-            'description' => 'descrpcion',
+            'description' => 'Es un mamífero carnívoro de la familia de los félidos y una de las cinco especies del género Panthera. Los leones salvajes viven en poblaciones cada vez más dispersas y fragmentadas del África subsahariana.',
             'habitat' => 'Terrestre',
             'region_id' =>1,
             'feeding' => 'Carnívoro',
@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Tigre',
             'scientific' => 'Panthera tigris',
             'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Tigress_at_Jim_Corbett_National_Park.jpg/800px-Tigress_at_Jim_Corbett_National_Park.jpg',
-            'description' => 'descripcion',
+            'description' => 'Es una de las cuatro especies de la subfamilia de los panterinos (familia Felidae) pertenecientes al género Panthera. Se encuentra solamente en el continente asiático.',
             'habitat' => 'Terrestre',
             'region_id' =>2,
             'feeding' => 'Carnívoro',
-            'danger' => false
+            'danger' => true
         )
     );
     /**
