@@ -4,24 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Animal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\verificarRequest;
+
 
 class CollectionController extends Controller
 {
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'scientific' => 'required|string|max:250',
-            'photo' => 'required|string|max:250',
-            'description' => 'required|string|max:250',
-            'habitat' => 'required|string|max:250',
-            'region' => 'required|int',
-            'feeding' => 'required|string|max:250'
-        ]);
-    }
-
     public function getIndex()
     {
 
@@ -69,10 +56,9 @@ class CollectionController extends Controller
         return	view('collection.notadmin');
     }
 
-    public function postCreate(Request $request)
+    public function postCreate(verificarRequest $request)
     {
-
-        try { 
+        try {
 
             $animal = new Animal();
             if(!empty($animal)){
@@ -111,7 +97,7 @@ class CollectionController extends Controller
 
     }
 
-    public function putEdit(Request $request){
+    public function putEdit(verificarRequest $request){
         try { 
 
             $animal = Animal::findOrFail($request['id']);

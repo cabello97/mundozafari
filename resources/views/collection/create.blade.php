@@ -14,27 +14,27 @@
                     
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="title">Nombre</label>
-                            <input type="text" name="name" id="name" class="form-control">
+                            <input required type="text" name="name" id="name" class="form-control">
                         </div>
 
                         <div class="form-group{{ $errors->has('scientific') ? ' has-error' : '' }}">
                             <label for="title">Nombre científico</label>
-                            <input type="text" name="scientific" id="scientific" class="form-control">
+                            <input required type="text" name="scientific" id="scientific" class="form-control">
                         </div>
 
                         <div class="form-group{{ $errors->has('photo') ? ' has-error' : '' }}">
                             <label for="title">Foto</label>
-                            <input type="text" name="photo" id="photo" class="form-control">
+                            <input required type="text" name="photo" id="photo" class="form-control">
                         </div>
 
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label for="title">Descripción</label>
-                            <textarea name="description" id="description" class="form-control" rows="3" maxlength="250"></textarea>
+                            <textarea required name="description" id="description" class="form-control" rows="3" maxlength="250"></textarea>
                         </div>
 
                         <div class="form-group{{ $errors->has('habitat') ? ' has-error' : '' }}">
                             <label for="title">Hábitat</label>
-                            <input type="text" name="habitat" id="habitat" class="form-control">
+                            <input required type="text" name="habitat" id="habitat" class="form-control">
                         </div>
 
                         <div class="form-group{{ $errors->has('region') ? ' has-error' : '' }}">
@@ -50,7 +50,7 @@
 
                         <div class="form-group{{ $errors->has('feeding') ? ' has-error' : '' }}">
                             <label for="title">Alimentación</label>
-                            <input type="text" name="feeding" id="feeding" class="form-control">
+                            <input required type="text" name="feeding" id="feeding" class="form-control">
                         </div>
 
                         <div class="form-group text-center">

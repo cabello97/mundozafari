@@ -16,37 +16,37 @@
 
                         <div class="form-group">
                             <label for="title">Nombre</label>
-                            <input type="text" name="name" id="name" class="form-control" value="{{$animal->name}}">
+                            <input required type="text" name="name" id="name" class="form-control" value="{{$animal->name}}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Nombre científico</label>
-                            <input type="text" name="scientific" id="scientific" class="form-control" value="{{$animal->scientific}}">
+                            <input required type="text" name="scientific" id="scientific" class="form-control" value="{{$animal->scientific}}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Foto</label>
-                            <input type="text" name="photo" id="photo" class="form-control" value="{{$animal->photo}}">
+                            <input required type="text" name="photo" id="photo" class="form-control" value="{{$animal->photo}}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Descripción</label>
-                            <textarea name="description" id="description" class="form-control" rows="3" maxlength="250">{{$animal->description}}</textarea>
+                            <textarea required name="description" id="description" class="form-control" rows="3" maxlength="250">{{$animal->description}}</textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="title">Hábitat</label>
-                            <input type="text" name="habitat" id="habitat" class="form-control" value="{{$animal->habitat}}">
+                            <input required type="text" name="habitat" id="habitat" class="form-control" value="{{$animal->habitat}}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Región</label>
-                            <input type="number" name="region" id="region" class="form-control" value="{{$animal->region->id}}" min="1" max="5">
+                            <input required type="number" name="region" id="region" class="form-control" value="{{$animal->region->id}}" min="1" max="5">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Alimentación</label>
-                            <input type="text" name="feeding" id="feeding" class="form-control" value="{{$animal->feeding}}">
+                            <input required type="text" name="feeding" id="feeding" class="form-control" value="{{$animal->feeding}}">
                         </div>
 
                         <div class="form-group text-center">
